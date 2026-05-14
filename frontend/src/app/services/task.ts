@@ -82,7 +82,7 @@ export class TaskService {
 
   patchTaskStatus(id: number, status: 'PENDING' | 'COMPLETED') {
     this._isLoading.set(true);
-    return this.http.patch<Task>(`${this.apiUrl}/${id}`, { status })
+    return this.http.patch<Task>(`${this.apiUrl}/${id}/completed`, {})
       .pipe(
         catchError(err => {
           this.handleError('Error updating task status', err);
