@@ -1,0 +1,55 @@
+.task-list-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filters {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.task-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.task-card {
+  transition: opacity 0.3s ease;
+}
+
+.task-card.completed {
+  opacity: 0.6;
+}
+
+.task-card.completed .task-title span {
+  text-decoration: line-through;
+}
+
+.task-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.loading-shade {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.no-tasks {
+  text-align: center;
+  color: #666;
+  padding: 40px;
+  font-size: 1.2rem;
+}

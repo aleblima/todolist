@@ -1,0 +1,48 @@
+<div class="task-list-container">
+  <div class="header">
+    <h1>Task Management</h1>
+    <button mat-raised-button color="primary" routerLink="/tasks/new">
+      <mat-icon>add</mat-icon> New Task
+    </button>
+  </div>
+
+  <div class="filters">
+    <mat-button-toggle-group [value]="filter()" (change)="onFilterChange($event)">
+      <mat-button-toggle value="ALL">All</mat-button-toggle>
+      <mat-button-toggle value="PENDING">Pending</mat-button-toggle>
+      <mat-button-toggle value="COMPLETED">Completed</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="loading-shade" *ngIf="isLoading()">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="task-grid" *ngIf="!isLoading()">
+    <mat-card *ngFor="let task of tasks()" class="task-card" [class.completed]="task.status === 'COMPLETED'">
+      <mat-card-header>
+        <mat-card-title class="task-title">
+          <mat-checkbox 
+            [checked]="task.status === 'COMPLETED'" 
+            (change)="toggleTaskStatus(task)">
+          </mat-checkbox>
+          <span>{{ task.title }}</span>
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="task.description">{{ task.description }}</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-actions align="end">
+        <button mat-icon-button color="primary" [routerLink]="['/tasks', task.id, 'edit']" aria-label="Edit task">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteTask(task)" aria-label="Delete task">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <div *ngIf="tasks().length === 0" class="no-tasks">
+      No tasks found.
+    </div>
+  </div>
+</div>

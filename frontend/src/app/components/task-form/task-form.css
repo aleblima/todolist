@@ -1,0 +1,30 @@
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+mat-card-title {
+  margin-bottom: 20px;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-actions {
+  padding: 16px;
+}
+
+.loading-shade {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
