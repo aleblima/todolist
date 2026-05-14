@@ -17,6 +17,5 @@ public class TaskRequestDTO {
     @NotBlank(message = "O título é obrigatório")
     @Size(max = 70, message = "O título deve ter no máximo 70 caracteres")
     private String title;
-    
     private String description;
 }

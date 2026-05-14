@@ -38,7 +38,7 @@ public class TaskController {
         return taskService.updateTask(id, requestDTO);
     }
 
-    @PatchMapping("/{id}/toggle")
+    @PatchMapping("/{id}/completed")
     public TaskResponseDTO toggleTaskCompleted(@PathVariable Long id) {
         return taskService.toggleTaskCompleted(id);
     }
