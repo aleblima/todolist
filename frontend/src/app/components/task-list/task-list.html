@@ -19,11 +19,11 @@
   </div>
 
   <div class="task-grid" *ngIf="!isLoading()">
-    <mat-card *ngFor="let task of tasks()" class="task-card" [class.completed]="task.status === 'COMPLETED'">
+    <mat-card *ngFor="let task of tasks()" class="task-card" [class.completed]="task.completed">
       <mat-card-header>
         <mat-card-title class="task-title">
           <mat-checkbox 
-            [checked]="task.status === 'COMPLETED'" 
+            [checked]="task.completed" 
             (change)="toggleTaskStatus(task)">
           </mat-checkbox>
           <span>{{ task.title }}</span>

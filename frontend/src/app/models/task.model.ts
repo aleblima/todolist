@@ -2,7 +2,7 @@ export interface Task {
   id: number;
   title: string;
   description?: string;
-  status: 'PENDING' | 'COMPLETED';
+  completed: boolean;
   createdAt: string;
   updatedAt?: string;
 }
@@ -10,14 +10,14 @@ export interface Task {
 export interface TaskRequestDTO {
   title: string;
   description?: string;
-  status?: 'PENDING' | 'COMPLETED';
+  completed?: boolean;
 }
 
 export interface TaskResponseDTO {
   id: number;
   title: string;
   description?: string;
-  status: 'PENDING' | 'COMPLETED';
+  completed: boolean;
   createdAt: string;
   updatedAt?: string;
 }

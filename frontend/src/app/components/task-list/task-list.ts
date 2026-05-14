@@ -34,8 +34,7 @@ export class TaskListComponent {
   filter = this.taskService.filter;
 
   toggleTaskStatus(task: Task) {
-    const newStatus = task.status === 'COMPLETED' ? 'PENDING' : 'COMPLETED';
-    this.taskService.patchTaskStatus(task.id, newStatus).subscribe(() => {
+    this.taskService.toggleTaskStatus(task.id).subscribe(() => {
       this.taskService.loadTasks(); // Reload tasks after updating
     });
   }

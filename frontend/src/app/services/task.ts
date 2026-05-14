@@ -24,7 +24,7 @@ export class TaskService {
     const filter = this._filter();
     const tasks = this._tasks();
     if (filter === 'ALL') return tasks;
-    return tasks.filter(t => t.status === filter);
+    return tasks.filter(t => filter === 'COMPLETED' ? t.completed : !t.completed);
   });
   isLoading = computed(() => this._isLoading());
   filter = computed(() => this._filter());
@@ -80,7 +80,7 @@ export class TaskService {
       );
   }
 
-  patchTaskStatus(id: number, status: 'PENDING' | 'COMPLETED') {
+  toggleTaskStatus(id: number) {
     this._isLoading.set(true);
     return this.http.patch<Task>(`${this.apiUrl}/${id}/completed`, {})
       .pipe(
